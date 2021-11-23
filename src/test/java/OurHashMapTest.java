@@ -142,6 +142,7 @@ class OurHashMapTest {
         assertTrue(map.containsKey("SPANISH"));
         assertTrue(map.containsValue("HELLO"));
         assertTrue(map.containsValue("HOLA"));
+        assertEquals(4, map.size());
     }
 
     @Test

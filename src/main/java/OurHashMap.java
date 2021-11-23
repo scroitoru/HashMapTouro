@@ -35,16 +35,7 @@ public class OurHashMap <K,V> implements Map<K,V> {
 
     @Override
     public boolean containsKey(Object key) {
-        List<Entry> list = getEntries(key);
-        if (list == null) {
-            return false;
-        }
-        for (Entry entry : list) {
-            if (entry.key.equals(key)) {
-                return true;
-            }
-        }
-        return false;
+        return this.get(key) != null;
     }
 
     @Override

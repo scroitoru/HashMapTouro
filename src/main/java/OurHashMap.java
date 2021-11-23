@@ -118,7 +118,6 @@ public class OurHashMap <K,V> implements Map<K,V> {
     public void putAll(Map<? extends K, ? extends V> m) {
         for(Map.Entry<? extends K, ? extends V> entry: m.entrySet()){
             put(entry.getKey(),entry.getValue());
-            numElements ++;
         }
     }
 

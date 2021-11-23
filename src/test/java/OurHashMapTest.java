@@ -16,9 +16,10 @@ class OurHashMapTest {
 
         //when
         map.put("ENGLISH1", "HELLO");
+        map.put("SPANISH", "HOLA");
 
         //then
-        assertEquals(1, map.size());
+        assertEquals(2, map.size());
     }
 
     @Test
@@ -142,7 +143,7 @@ class OurHashMapTest {
         assertTrue(map.containsKey("SPANISH"));
         assertTrue(map.containsValue("HELLO"));
         assertTrue(map.containsValue("HOLA"));
-        assertEquals(4, map.size());
+        assertEquals(2, map.size());
     }
 
     @Test

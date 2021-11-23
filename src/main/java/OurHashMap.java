@@ -17,6 +17,12 @@ public class OurHashMap <K,V> implements Map<K,V> {
 
     List<Entry>[] values = new List[SIZE];
 
+    private List<Entry> getEntries(Object key) {
+        int hashCode = key.hashCode();
+        int index = Math.abs(hashCode) % SIZE;
+        return values[index];
+    }
+
     @Override
     public int size() {
         return numElements;
@@ -29,9 +35,7 @@ public class OurHashMap <K,V> implements Map<K,V> {
 
     @Override
     public boolean containsKey(Object key) {
-        int hashCode = key.hashCode();
-        int index = Math.abs(hashCode) % SIZE;
-        List<Entry> list = values[index];
+        List<Entry> list = getEntries(key);
         if (list == null) {
             return false;
         }
@@ -59,9 +63,7 @@ public class OurHashMap <K,V> implements Map<K,V> {
 
     @Override
     public V get(Object key) {
-        int hashcode = key.hashCode();
-        int index = Math.abs(hashcode) % SIZE;
-        List<Entry> list = values[index];
+        List<Entry> list = getEntries(key);
         if (list == null) {
             return null;
         }
@@ -100,9 +102,7 @@ public class OurHashMap <K,V> implements Map<K,V> {
 
     @Override
     public V remove(Object key) {
-        int hashcode = key.hashCode();
-        int index = Math.abs(hashcode) % SIZE;
-        List<Entry> list = values[index];
+        List<Entry> list = getEntries(key);
         for(Entry entry: list){
             if(entry.key.equals(key)){
                 V value = (V) entry.value;
